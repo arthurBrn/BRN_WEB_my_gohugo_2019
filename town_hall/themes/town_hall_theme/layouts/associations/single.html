@@ -1,0 +1,134 @@
+<!-- Template for single events -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" . }}
+    <!-- Here we'll place the event title -->
+    <title>{{ .Title }}</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- NAVBAR -->
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "header.html" . }}
+            </div>
+        </div>
+        <!-- MAIN -->
+        <main class="main" id="js-main-asso">
+            <div class="row">
+                <div class="col-md-3 mt-3">
+                    <!-- <div class="jumbotron"> -->
+                    <div class="card">
+                        <div class="view overlay">
+                            <img class="card-img-top" src="{{ .Params.Photo }}" alt="Card image cap">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body elegant-color white-text rounded-bottom">
+                            <a class="activator waves-effect mr-4"></a>
+                            <ul>
+                                <li>Domain : {{ .Params.Domain }}</li>
+                                <li>Address : {{ .Params.Adresse }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-md-9 mt-3">
+                    <div class="jumbotron">
+                        <h1>{{ .Title }}</h1>
+                        <!-- Store the value for later use -->
+                        {{ $assoName := print .Title }}
+                        <!-- display for test -->
+                        {{ $assoName }}
+                        <hr class="hr-dark">
+                    </div>
+                    <div class="jumbotron">
+                        <p>
+                            {{ .Description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 "></div>
+                <div class="col-md-4">
+                    <button class="btn btn-block btn-elegant upcomingEvent" id="js-asso-btn"></button>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div class="row">
+                <div id="upcomingEventDiv"></div>
+                <!-- We stock current date in variable -->
+                {{ $currentDate := dateFormat "Jan 02 2006" now }}
+
+                <!-- Go through all the pages -->
+                {{ range .Site.Pages }}
+                <div class="col-md-4">
+                    <!-- if type event -->
+                    {{ if eq .Type "events" }}
+                    <!-- On verifie que le titre de l'asso concerné est la même que l'asso organisatrice de l'event -->
+                    {{ if eq .Params.Association $assoName }}
+                    <!-- we stock event's date in var for later if condition -->
+                    {{ $eventDate := dateFormat "Jan 02 2006" .Params.When }}
+                    <!-- si l'évènement est à venir -->
+                    {{ if gt $eventDate $currentDate }}
+                    <div id="upcoming">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <a href="{{ .Permalink }}">{{ .Params.Title }}</a>
+                                </div>
+                                <p class="small">
+                                    {{ .Params.Description | truncate 30 }}
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                {{ dateFormat "Jan 02 2006" .Params.When }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- endif -->
+                    {{ end }}
+                    <!-- si l'évènement est passé -->
+                    {{ if le $eventDate $currentDate }}
+                    <div id="past">
+                        <div class="card mt-5">
+                            <div class="card-body">
+                                <div class="card-title">
+                                    <a href="{{ .Permalink }}">{{ .Params.Title }}</a>
+                                </div>
+                                <p class="small">
+                                    {{ .Params.Description | truncate 30 }}
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                {{ dateFormat "Jan 02 2006" .Params.When }}
+                            </div>
+                        </div>
+                    </div>
+                    <!-- endif -->
+                    {{ end }}
+                    <!-- endif -->
+                    {{ end }}
+                    <!-- endif -->
+                    {{ end }}
+                </div>
+                <!-- rangeend -->
+                {{ end }}
+            </div>
+        </main>
+    </div>
+    <!-- FOOTER-->
+    <div class="row">
+        <div class="col-md-12">
+            {{ partial "footer.html" . }}
+        </div>
+    </div>
+</body>
+
+</html>

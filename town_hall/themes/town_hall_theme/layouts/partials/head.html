@@ -1,0 +1,33 @@
+<!-- BOOTSTRAP CSS -->
+{{ $css := "css/bootstrap.min.css" | absURL }}
+<link rel="stylesheet" href="{{ $css }}">
+<!-- MDBOOTSTRAP CSS -->
+{{ $mdbcss := "mdb/css/mdb.min.css" | absURL }}
+<link rel="stylesheet" href="{{ $mdbcss }}" type="text/css">
+
+<!-- ASSOCIATION PAGE CSS -->
+{{ $associationPageCss := "css/association.css" }}
+<link rel="text/css" href="{ $associationPageCss }">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<style>
+    /* ==============================
+    *  == CSS FOR ASSOCIATION PAGE ==
+    *  ==============================
+    */
+    
+    .upcomingEvent::before {
+        content: "Past event";
+    }
+    
+    .pastEvent::before {
+        content: "Upcoming event";
+    }
+    /* =========
+    *  == END ==
+    *  =========
+    */
+</style>

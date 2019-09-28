@@ -1,0 +1,7 @@
+.upcomingEvent::before {
+    content: "Past event";
+}
+
+.pastEvent::before {
+    content: "Upcoming event";
+}

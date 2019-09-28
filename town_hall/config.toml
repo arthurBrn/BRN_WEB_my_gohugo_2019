@@ -1,0 +1,70 @@
+baseURL = "http://example.org/"
+languageCode = "en-us"
+title = "Town Hall"
+theme = "town_hall_theme"
+themesDir = "./themes"
+phone = "0297010203"
+adresse = "San Francisco, CA 94126, USA"
+mail = "contact@contact.com"
+
+
+[[menu.main]]
+    name =  "home"
+    url = "/"
+    weight = 1
+[[menu.main]]
+    name = "municipal council"
+    url = "/municipalCouncil"
+    weight = 2
+[[menu.main]]
+    name = "associations"
+    url = "/associations"
+    weight = 3
+
+# EVENTS AND SUBCATEGORIE FOR EVENTS 
+[[ menu.main ]]
+    identifier = "events"
+    name = "events"
+    url = "/events"
+    weight = 4 
+
+[[ menu.main]]
+    parent = "events" 
+    name = "All events"
+    url = "/events"
+    test = "grostest"
+    weight = 1
+
+[[ menu.main]]
+    parent = "events" 
+    name = "Upcoming events"
+    url = "/events"
+    weight = 2
+
+[[ menu.main]]
+    parent = "events"
+    name = "Archived events"
+    url = "/events"
+    weight = 3
+
+[[ menu.main]]
+    parent = "events" 
+    name = "Calendar events"
+    url = "/events"
+    weight = 4
+
+
+[[ menu.footer ]]
+    name = "Contact"
+    url = "/contact"
+    weight = 1
+
+
+
+[params]
+    homeText = "Some text for test"
+    homeText2 = "Some more text"
+
+
+
+

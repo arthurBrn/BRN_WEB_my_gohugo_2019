@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" . }}
+    <!-- Title of the concerned event with -->
+    <title>Events</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <header>
+                    <!-- Most likely the navbar, shall we do one specific for each "type" of thing on the site ? -->
+                    {{ partial "header.html" . }}
+                </header>
+            </div>
+        </div>
+        <main class="main" id="js-event-main">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="jumbotron text-center">
+                        <h1 id="js-event-listing-title"></h1>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- We recover the current date for later condition -->
+            {{ $currentDate := dateFormat "02 January 2006" now }}
+            <section id="all">
+                <div class="row">
+                    <!-- Go through every pages -->
+                    {{ range .Data.Pages }}
+                    <!-- if of type event -->
+                    {{ if eq .Type "events" }}
+                    <div class="col-md-4">
+                        <div class="jumbotron">
+                            <!-- on utilise le partial -->
+                            {{ partial "eventCard.html" . }}
+                        </div>
+                    </div>
+                    <!-- endif-->
+                    {{ end }}
+                    <!-- endrange-->
+                    {{ end }}
+                </div>
+            </section>
+            <section id="upcoming">
+                <div class="row">
+                    <!-- range through all pages -->
+                    {{ range .Data.Pages }}
+                    <!-- if pages of type event -->
+                    {{ if eq .Type "events" }}
+                    <div class="col-md-4">
+                        <div class="jumbotron">
+                            <p>Upcoming event</p>
+                            <!-- we recover the date of the event -->
+                            {{ $eventDate := dateFormat "02 January 2006" .Params.When }}
+                            <!-- if date of the event is superior to the current date -->
+                            {{ if gt $eventDate $currentDate }}
+                            <!-- We import the partial eventCard -->
+                            {{ partial "eventCard.html" . }}
+                            <!-- endif -->
+                            {{ end }}
+                        </div>
+                    </div>
+                    <!-- endif -->
+                    {{ end }}
+                    <!-- endrange -->
+                    {{ end }}
+                </div>
+            </section>
+            <section id="archived">
+                <div class="row">
+                    <!-- range through all pages -->
+                    {{ range .Data.Pages }}
+                    <!-- if pages of type event -->
+                    {{ if eq .Type "events" }}
+                    <div class="col-md-4">
+                        <div class="jumbotron">
+                            <p>archived event</p>
+                            <!-- we recover the date of the event -->
+                            {{ $eventDate := dateFormat "02 January 2006" .Params.When }}
+                            <!-- if date of the event is superior to the current date -->
+                            {{ if lt $eventDate $currentDate }}
+                            <p>{{$currentDate}} </p>
+                            <!-- We import the partial eventCard -->
+                            {{ partial "eventCard.html" . }}
+                            <!-- endif -->
+                            {{ end }}
+                        </div>
+                    </div>
+                    <!-- endif -->
+                    {{ end }}
+                    <!-- endrange -->
+                    {{ end }}
+                </div>
+            </section>
+            <section id="calendar">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="jumbotron">
+                            <p>calendar</p>
+                            {{ partial "calendarEvent.html" . }}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "footer.html" . }}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

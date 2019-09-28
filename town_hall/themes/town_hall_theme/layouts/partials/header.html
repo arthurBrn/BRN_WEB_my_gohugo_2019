@@ -1,0 +1,47 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <!-- On parcours les menus -->
+            {{ range .Site.Menus.main }}
+            <!-- On affiche tous les menus qui n'ont pas d'enfant -->
+            {{ if not .HasChildren }}
+            <li class="nav-item ">
+                <a class="nav-link" href="{{ .URL }}">{{ .Name }}</a>
+            </li>
+            {{ end }}
+            <!-- On affiche les menus qui ont un ou plusieurs enfants -->
+            {{ if .HasChildren }}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- On affiche le nom du menu avec enfants -->
+                    {{ .Name }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <!-- On parcour tous les sous menus -->
+                    {{ range .Children }}
+                    <!-- Recover the URL, concatenate it with a var parameter and the name of url to know how to display the page where we're going -->
+                    {{ $url := print .URL "?var=" .Name }}
+                    <a class="dropdown-item" href="{{ $url }}">
+                        <!-- On affiche le nom des sous menus -->
+                        {{ .Name }}</a>
+                    <!-- range end -->
+                    {{ end }}
+                </div>
+            </li>
+            <!-- if haschildren end -->
+            {{ end }}
+            <!-- range end -->
+            {{ end }}
+        </ul>
+
+        <!-- Search form -->
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+    </div>
+</nav>

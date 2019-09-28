@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="row">
+    <div class="col-md-4">
+        <!-- display the next 10 important events -->
+        <!-- On parcours toutes les pages du site -->
+        {{ range .Data.Pages }}
+        <!-- Si pages = event -->
+        {{ if eq .Type "events" }}
+        <!-- range first 10 events where important = true, sort by increasing date -->
+        <!-- Title, label, when, photo -->
+        <div class="card" style="width:24rem;">
+            <img src="https://via.placeholder.com/30" class="card-img img-thumbnail img-fluid h50% w30%" alt="events picture">
+            <div class="card-body">
+                <!-- This will be the title of our event -->
+                <h2 class="card-title">
+                    <a href="{{ .Permalink }}">
+                    {{ .Params.Title }}
+                </a>
+                </h2>
+                <!-- range start -->
+                {{ range .Params.Adresse }}
+                <!-- display the label -->
+                {{ .label }}
+                <!-- endrange -->
+                {{ end }}
+                <hr>
+                <p>{{ .Params.Description }}</p>
+                <!-- stroe the event's association -->
+                {{ $asso := print .Params.Association }}
+                <!-- {{ $asso }} -->
+
+                <!-- Range through every pages -->
+                {{ range .Data.Pages }} 1
+                <!-- If page is of type association -->
+                {{ if eq .Types "associations" }}
+                <!-- if association name = event's association -->
+                {{ if eq .Params.Title $asso }}
+                <a href="{{ .Permalink }}">
+                        {{ $asso }} plus that
+                    </a>
+                <!-- Sinon on affiche juste le nom -->
+                {{ else }}
+                <!-- name display -->
+                {{ $asso }}
+                <!-- endif -->
+                {{ end }}
+                <!-- endif -->
+                {{ end }}
+                <!-- endrange -->
+                {{ end }}
+            </div>
+            <div class="card-footer">
+                <small>Replace by when </small>
+            </div>
+        </div>
+        <!-- endif-->
+        {{ end }}
+        <!-- endrange -->
+        {{ end }}
+    </div>
+</div>
+{{ end }}

@@ -1,0 +1,29 @@
+<div class="card">
+    <!-- If the events got no picture -->
+    {{ if eq .Params.Photo "" }}
+    <img src="https://via.placeholder.com/150" class="card-img img-thumbnail img-fluid" alt="events picture">
+    <!-- If it does have photos -->
+    {{ else }}
+    <!-- we go through the array of picture and display them -->
+    {{ range .Params.Photo }}
+    <img src="{{ . }}" class="card-img img-thumbnail img-fluid" alt="events picture">
+    <!-- endrange -->
+    {{ end }}
+    <!-- endif -->
+    {{ end }}
+    <div class="card-body">
+        <!-- This will be the title of our event -->
+        <h2 class="card-title">
+            <a href="{{ .Permalink }}">
+                                            {{ .Params.Title }}
+                                        </a>
+        </h2>
+        <hr>
+        <p>{{ .Params.Description | truncate 30 }}</p>
+        <p class="lead">By : {{ .Params.Association }}</p>
+        <p class="lead">At : {{ range .Params.Adresse }} {{ $address := print .address " " .postalCode " " .city " " .label }} {{ $address | safeHTML }} {{ end }}</p>
+    </div>
+    <div class="card-footer">
+        {{ dateFormat "02 January 2006" .Params.When}}
+    </div>
+</div>

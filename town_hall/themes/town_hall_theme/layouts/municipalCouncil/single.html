@@ -1,0 +1,62 @@
+<!-- Template for single events -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" . }}
+    <!-- Here we'll place the event title -->
+    <title>{{ .Title }}</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- NAVBAR -->
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "header.html" . }}
+            </div>
+        </div>
+        <!-- MAIN -->
+        <main class="main">
+            <div class="row">
+                <div class="col-md-4 mt-3">
+                    <div class="jumbotron"></div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    <!-- <div class="jumbotron"> -->
+                    <div class="card h-50">
+                        <div class="view overlay">
+                            <img class="card-img-top w-100 h-100" src="{{ .Params.Photo }}" alt="Card image cap">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body elegant-color white-text rounded-bottom">
+                            <a class="activator waves-effect mr-4"></a>
+                            {{ $nameUpper := .Params.LastName | upper }}
+                            <!--   Turn it into upper -->
+                            {{ $fullName := print .Params.FirstName " " $nameUpper }}
+                            <h2 class="card-title">{{ $fullName }}</h2>
+                            <ul>
+                                <li>Role : {{ .Params.Role }}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="jumbotron"></div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER-->
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "footer.html" . }}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

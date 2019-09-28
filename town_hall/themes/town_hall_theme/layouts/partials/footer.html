@@ -1,0 +1,147 @@
+<footer class="page-footer font-small blue pt-4 mt-5">
+    <div class="container-fluid text-center text-white text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5 class="text-uppercase">Footer Content</h5>
+                <p>Here you can use rows and columns to organize your footer content.</p>
+            </div>
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <div class="col-md-6 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Contact</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/contact"> contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- AJAX API -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <!-- BOOTSTRAP JS -->
+    {{ $js := "js/bootstrap.min.js" | absURL }}
+    <link rel="stylesheet" href="{{ $js }}">
+    <!-- MDBOOTSTRAP JS -->
+    {{ $mdbjs := "mdb/js/mdb.min.js" | absURL }}
+    <link rel="stylesheet" href="{{ $mdbjs }}">
+    <!-- JS ASSOCIATION PAGE -->
+    {{ $asso := "association/asso.js" }}
+    <link rel="text/javascript" href="{{ $asso }}" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/59cb36667e.js" crossorigin="anonymous"></script>
+    <script>
+        // JS scrpit for button changing on association page 
+        $(Document).ready(function() {
+            /* =============================
+             *  == JS FOR ASSOCIATION PAGE ==
+             *  =============================
+             */
+            // We recover the main tag, to search for js id or class we'll use 
+            $assoPage = $('#js-main-asso');
+            // We recover the button for display past or upcoming event
+            $assoButton = $assoPage.find('#js-asso-btn');
+
+            // we recover the class that will contain upcoming events
+            $upcomingEventDiv = $assoPage.find('#upcoming');
+            // we recover the class that will contain past events
+            $pastEventDiv = $assoPage.find('#past');
+
+            // By default we'll hide the event that are passed 
+            $pastEventDiv.hide();
+
+
+            // If the button is clicked 
+            $assoButton.on('click', function(e) {
+                // we recover the current classes of the object
+                var currentClass = $(this).attr('class');
+                // We search one or another particular class in it 
+                var upcomingEvent = currentClass.search('upcomingEvent');
+                var pastEVent = currentClass.search('pastEvent');
+
+                // Si upcomingEvent > 1 (et donc existe)
+                if (upcomingEvent > 1) {
+                    // Delete css class upcomingEvent
+                    $(this).removeClass('upcomingEvent');
+                    // Add css class pastEvent
+                    $(this).addClass('pastEvent');
+                    // hide the upcoming events 
+                    $upcomingEventDiv.fadeOut();
+                    // Show the past events
+                    $pastEventDiv.toggle();
+                }
+                // else if the class pastEvent is already active 
+                else if (pastEVent > 1) {
+                    // we delete it 
+                    $(this).removeClass('pastEvent');
+                    // we had the class upcomingEvent
+                    $(this).addClass('upcomingEvent');
+                    // hide the past events
+                    $pastEventDiv.fadeOut();
+                    // show the upcoming ones 
+                    $upcomingEventDiv.fadeIn();
+                }
+            });
+            /* =========
+             *  == END ==
+             *  =========
+             *** */
+
+            /*
+             * ===============================
+             * == JS FOR EVENT LISTING PAGE ==
+             * ===============================
+             * */
+
+            // We recover the main tag element of event listing page
+            var $main = $('#js-event-main');
+            // We find the title of the page 
+            var $pageTitle = $main.find('#js-event-listing-title');
+
+            // Find the divs to display accordingly to each type of events
+            var $allDiv = $main.find('#all');
+            var $upcomingDiv = $main.find('#upcoming');
+            var $archivedDiv = $main.find('#archived');
+            var $calendarDiv = $main.find('#calendar');
+
+            // Url recovery 
+            var url = window.location.href;
+            // We recover the first index of the '=' sign in the url 
+            var positionOfEqual = url.search('=');
+            // Recover the first index of '%' in the url
+            var percentagePosition = url.search('%');
+            // We recover the word that decide which kind of events we display
+            var finalUrl = url.slice(positionOfEqual + 1, percentagePosition);
+            console.log(finalUrl);
+
+            // IF STATEMENT TO ORGANISE THE PAGE 
+            // if the user want to see all of the content 
+            if (finalUrl.toLowerCase() === 'all') {
+                $upcomingDiv.hide();
+                $archivedDiv.hide();
+                $allDiv.show();
+                $calendarDiv.hide();
+                $pageTitle.append('All our events');
+            } else if (finalUrl.toLowerCase() === 'upcoming') {
+                $upcomingDiv.show();
+                $archivedDiv.hide();
+                $allDiv.hide();
+                $calendarDiv.hide();
+                $pageTitle.append('Upcoming events');
+            } else if (finalUrl.toLowerCase() === 'archived') {
+                $upcomingDiv.hide();
+                $archivedDiv.show();
+                $allDiv.hide();
+                $calendarDiv.hide();
+                $pageTitle.append('Past Events');
+            } else if (finalUrl.toLowerCase() === 'calendar') {
+                $upcomingDiv.hide();
+                $archivedDiv.hide();
+                $allDiv.hide();
+                $calendarDiv.show();
+                $pageTitle.append('Calendar');
+            }
+        });
+    </script>
+</footer>

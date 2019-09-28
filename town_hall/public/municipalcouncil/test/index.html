@@ -1,0 +1,320 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    
+
+<link rel="stylesheet" href="http://example.org/css/bootstrap.min.css">
+
+
+<link rel="stylesheet" href="http://example.org/mdb/css/mdb.min.css" type="text/css">
+
+
+
+<link rel="text/css" href="{ $associationPageCss }">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+<style>
+     
+    
+    .upcomingEvent::before {
+        content: "Past event";
+    }
+    
+    .pastEvent::before {
+        content: "Upcoming event";
+    }
+     
+</style>
+    
+    <title></title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        
+        <div class="row">
+            <div class="col-md-12">
+                <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            
+            
+            
+            
+            <li class="nav-item ">
+                <a class="nav-link" href="/">home</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            <li class="nav-item ">
+                <a class="nav-link" href="/municipalcouncil">municipal council</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            <li class="nav-item ">
+                <a class="nav-link" href="/associations">associations</a>
+            </li>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    
+                    events
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    
+                    
+                    
+                    
+                    <a class="dropdown-item" href="/events?var=All%20events">
+                        
+                        All events</a>
+                    
+                    
+                    
+                    
+                    <a class="dropdown-item" href="/events?var=Upcoming%20events">
+                        
+                        Upcoming events</a>
+                    
+                    
+                    
+                    
+                    <a class="dropdown-item" href="/events?var=Archived%20events">
+                        
+                        Archived events</a>
+                    
+                    
+                    
+                    
+                    <a class="dropdown-item" href="/events?var=Calendar%20events">
+                        
+                        Calendar events</a>
+                    
+                    
+                </div>
+            </li>
+            
+            
+            
+            
+        </ul>
+
+        
+        <form class="form-inline">
+            <div class="md-form my-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            </div>
+        </form>
+    </div>
+</nav>
+            </div>
+        </div>
+        
+        <main class="main">
+            <div class="row">
+                <div class="col-md-4 mt-3">
+                    <div class="jumbotron"></div>
+                </div>
+                <div class="col-md-4 mt-3">
+                    
+                    <div class="card h-50">
+                        <div class="view overlay">
+                            <img class="card-img-top w-100 h-100" src="https://via.placeholder.com/150" alt="Card image cap">
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body elegant-color white-text rounded-bottom">
+                            <a class="activator waves-effect mr-4"></a>
+                            
+                            
+                            
+                            <h2 class="card-title">Jean LOU</h2>
+                            <ul>
+                                <li>Role : Deputy</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="col-md-4 mt-3">
+                    <div class="jumbotron"></div>
+                </div>
+            </div>
+        </main>
+
+        
+        <div class="row">
+            <div class="col-md-12">
+                <footer class="page-footer font-small blue pt-4 mt-5">
+    <div class="container-fluid text-center text-white text-md-left">
+        <div class="row">
+            <div class="col-md-6 mt-md-0 mt-3">
+                <h5 class="text-uppercase">Footer Content</h5>
+                <p>Here you can use rows and columns to organize your footer content.</p>
+            </div>
+            <hr class="clearfix w-100 d-md-none pb-3">
+            <div class="col-md-6 mb-md-0 mb-3">
+                <h5 class="text-uppercase">Contact</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="/contact"> contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    
+    
+    <link rel="stylesheet" href="http://example.org/js/bootstrap.min.js">
+    
+    
+    <link rel="stylesheet" href="http://example.org/mdb/js/mdb.min.js">
+    
+    
+    <link rel="text/javascript" href="association/asso.js" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/59cb36667e.js" crossorigin="anonymous"></script>
+    <script>
+        
+        $(Document).ready(function() {
+            
+
+            
+            $assoPage = $('#js-main-asso');
+            
+            $assoButton = $assoPage.find('#js-asso-btn');
+
+            
+            $upcomingEventDiv = $assoPage.find('#upcoming');
+            
+            $pastEventDiv = $assoPage.find('#past');
+
+            
+            $pastEventDiv.hide();
+
+
+            
+            $assoButton.on('click', function(e) {
+                
+                var currentClass = $(this).attr('class');
+                
+                var upcomingEvent = currentClass.search('upcomingEvent');
+                var pastEVent = currentClass.search('pastEvent');
+
+                
+                if (upcomingEvent > 1) {
+                    
+                    $(this).removeClass('upcomingEvent');
+                    
+                    $(this).addClass('pastEvent');
+                    
+                    $upcomingEventDiv.fadeOut();
+                    
+                    $pastEventDiv.toggle();
+                }
+                
+                else if (pastEVent > 1) {
+                    
+                    $(this).removeClass('pastEvent');
+                    
+                    $(this).addClass('upcomingEvent');
+                    
+                    $pastEventDiv.fadeOut();
+                    
+                    $upcomingEventDiv.fadeIn();
+                }
+            });
+            
+
+
+            
+
+
+            
+            var $main = $('#js-event-main');
+            
+            var $pageTitle = $main.find('#js-event-listing-title');
+
+            
+            var $allDiv = $main.find('#all');
+            var $upcomingDiv = $main.find('#upcoming');
+            var $archivedDiv = $main.find('#archived');
+            var $calendarDiv = $main.find('#calendar');
+
+            
+            var url = window.location.href;
+            
+            var positionOfEqual = url.search('=');
+            
+            var percentagePosition = url.search('%');
+            
+            var finalUrl = url.slice(positionOfEqual + 1, percentagePosition);
+            console.log(finalUrl);
+
+            
+            
+            if (finalUrl.toLowerCase() === 'all') {
+                $upcomingDiv.hide();
+                $archivedDiv.hide();
+                $allDiv.show();
+                $calendarDiv.hide();
+                $pageTitle.append('All our events');
+            } else if (finalUrl.toLowerCase() === 'upcoming') {
+                $upcomingDiv.show();
+                $archivedDiv.hide();
+                $allDiv.hide();
+                $calendarDiv.hide();
+                $pageTitle.append('Upcoming events');
+            } else if (finalUrl.toLowerCase() === 'archived') {
+                $upcomingDiv.hide();
+                $archivedDiv.show();
+                $allDiv.hide();
+                $calendarDiv.hide();
+                $pageTitle.append('Past Events');
+            } else if (finalUrl.toLowerCase() === 'calendar') {
+                $upcomingDiv.hide();
+                $archivedDiv.hide();
+                $allDiv.hide();
+                $calendarDiv.show();
+                $pageTitle.append('Calendar');
+            }
+        });
+    </script>
+</footer>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

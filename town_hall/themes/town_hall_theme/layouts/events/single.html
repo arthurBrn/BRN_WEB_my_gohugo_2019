@@ -1,0 +1,83 @@
+<!-- Template for single events -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ partial "head.html" . }}
+    <!-- Here we'll place the event title -->
+    <title>title to change</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <!-- NAVBAR -->
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "header.html" . }}
+            </div>
+        </div>
+        <!-- MAIN -->
+        <main class="main">
+            <div class="row">
+                <div class="col-md-3 mt-3">
+                    <!-- <div class="jumbotron"> -->
+                    <div class="card">
+                        <div class="view overlay">
+                            <!-- If the event got no pictue -->
+                            {{ if eq .Params.Photo "" }}
+                            <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                            <!-- else if it got no picture -->
+                            {{ else }}
+                            <!-- Range on the photo array of event -->
+                            {{ range .Params.Photo }}
+                            <img class="card-img-top" src="{{ . }}" alt="Card image cap">
+                            <!-- End range -->
+                            {{ end }}
+                            <!-- endif -->
+                            {{ end }}
+                            <a>
+                                <div class="mask rgba-white-slight"></div>
+                            </a>
+                        </div>
+                        <div class="card-body elegant-color white-text rounded-bottom">
+                            <a class="activator waves-effect mr-4"><i class="fas fa-share-alt white-text"></i></a>
+                            <ul>
+                                <li> At:
+                                    <!-- Go through the adresse array -->
+                                    {{ range .Params.Adresse }}
+                                    <!-- Create an address variable -->
+                                    {{ $address := print .address " " .postalCode " " .city " " .label }}
+                                    <!-- Display the variable with filter -->
+                                    {{ $address | safeHTML }}
+                                    <!-- End of range-->
+                                    {{ end }}
+                                </li>
+                                <li>{{ $dateTime := print .Params.When "2006-01-02" }} On the: {{ $dateTime }} </li>
+                                <li>By: {{ .Params.Association }} </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+                </div>
+                <div class="col-md-9 mt-3">
+                    <div class="jumbotron">
+                        <h1>{{ .Title }}</h1>
+                        <hr class="hr-dark">
+                        <p>
+                            {{ .Description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- FOOTER-->
+        <div class="row">
+            <div class="col-md-12">
+                {{ partial "footer.html" . }}
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

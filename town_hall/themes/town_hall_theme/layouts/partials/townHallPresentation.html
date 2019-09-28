@@ -1,0 +1,20 @@
+<!-- Range on all pages -->
+{{ range .Site.Pages }}
+<!-- if type equals presentation -->
+{{ if eq .Type "presentation" }}
+<div class="row">
+    <div class="col-md-6" style="">
+        <img src="{{ .Params.Photo }}" class=" img-fluid ">
+    </div>
+    <div class="col-md-6">
+        <div class="jumbotron">
+            <p>
+                {{ .Content }}
+            </p>
+        </div>
+    </div>
+</div>
+<!-- endif -->
+{{ end }}
+<!-- endrange -->
+{{ end }}
