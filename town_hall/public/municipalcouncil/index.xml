@@ -12,6 +12,42 @@
     
     <item>
       <title></title>
+      <link>http://example.org/municipalcouncil/adjoint1/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/municipalcouncil/adjoint1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/municipalcouncil/adjoint2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/municipalcouncil/adjoint2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/municipalcouncil/adjoint3/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/municipalcouncil/adjoint3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>http://example.org/municipalcouncil/mayor/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/municipalcouncil/mayor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>http://example.org/municipalcouncil/test/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       

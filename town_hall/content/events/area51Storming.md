@@ -10,7 +10,7 @@ adresse:
 - address: "Nevada"
 - postalCode: "75000"
 - city: "No city"
-- label: "Festival"
+- label: "Hotel de ville 7ème"
 
 # Today's date at default 
 when: 2019-09-29T00:31:41+02:00
@@ -19,6 +19,7 @@ Description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendi
 # So a tab or not, we'll have to loop.
 photo: 
 - https://via.placeholder.com/150
+- https://via.placeholder.com/190
 # true by default, true means never display the event
 draft: true
 important: true

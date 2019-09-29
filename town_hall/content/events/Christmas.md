@@ -10,7 +10,7 @@ adresse:
 - address: "everywhere"
 - postalCode: "75000"
 - city: "Paris"
-- label: "Commercial event"
+- label: "Champe ELysee"
 
 # Today's date at default 
 when: 2019-09-29T00:28:37+02:00

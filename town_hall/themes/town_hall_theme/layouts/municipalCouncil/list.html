@@ -27,28 +27,45 @@
                 </div>
             </div>
             {{ partial "townHallPresentation.html" . }}
-            <div class="row">
-                <!-- go through all the web pages -->
-                {{ range .Data.Pages }}
-                <!-- if pages if of type municipalcouncil -->
-                {{ if eq .Type "municipalCouncil" }}
-                <!-- Three cards per row, we'll improve with card deck if we got time -->
-                <div class="col-md-4">
+
+            <!-- RANGE FOR THE MAYOR -->
+            {{ range (where .Site.RegularPages "Type" "municipalCouncil" ) }}
+            <!-- if the man is the mayor-->
+            {{ if eq .Params.Role "mayor" }}
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1>Mayor</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4 text-center">
                     <div class="jumbotron">
-                        <div class="card">
-                            <!-- Photo of the council member-->
-                            <img src="{{ .Params.Photo }}" class="card-img-top img-fluid" alt="placehodler image for dev">
-                            <div class="card-body">
-                                <h2 class="card-title">
-                                    <a href="{{ .Permalink | absURL }}">
-                                {{ $nameUpper := .Params.LastName | upper }} <!--   Turn it into upper -->
-                                {{ $fullName := print .Params.FirstName " " $nameUpper  }} <!-- Tie both together -->
-                                {{ $fullName }} 
-                            </a>
-                                </h2>
-                                <p>Role here </p>
-                            </div>
-                        </div>
+                        <!-- We call partial to display cards -->
+                        {{ partial "municipalCard.html" . }}
+                    </div>
+                </div>
+            </div>
+            <!-- endif -->
+            {{ end }}
+            <!-- endrange -->
+            {{ end }}
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1>Adjoint(s)</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <!-- RANGE FOR THE ADJOINTS -->
+                {{ range (where .Site.RegularPages "Type" "municipalCouncil" ) }}
+                <!-- if the man is the mayor-->
+                {{ if eq .Params.Role "adjoint" }}
+                <div class="col-md-4 text-center">
+                    <div class="jumbotron">
+                        <!-- We call partial to display cards -->
+                        {{ partial "municipalCard.html" . }}
                     </div>
                 </div>
                 <!-- endif -->
@@ -56,12 +73,41 @@
                 <!-- endrange -->
                 {{ end }}
             </div>
-        </main>
-        <div class="row">
-            <div class="col-md-12">
-                {{ partial "footer.html" }}
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1>Our great staff</h1>
+                    <hr>
+                </div>
             </div>
+            <div class="row mt-2">
+                <!-- RANGE FOR THE ADJOINTS -->
+                {{ range (where .Site.RegularPages "Type" "municipalCouncil" ) }}
+                <!-- if the man is the mayor-->
+                {{ if and (ne .Params.Role "adjoint") (ne .Params.Role "mayor") }}
+                <div class="col-md-4 text-center">
+                    <div class="jumbotron">
+                        <!-- We call partial to display cards -->
+                        {{ partial "municipalCard.html" . }}
+                    </div>
+                </div>
+                <!-- endif -->
+                {{ end }}
+                <!-- endrange -->
+                {{ end }}
+            </div>
+
+
+
+
+
+    </div>
+    </main>
+    <div class="row">
+        <div class="col-md-12">
+            {{ partial "footer.html" }}
         </div>
+    </div>
     </div>
 </body>
 

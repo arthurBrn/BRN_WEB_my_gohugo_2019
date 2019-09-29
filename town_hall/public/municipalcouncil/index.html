@@ -30,6 +30,67 @@
         content: "Upcoming event";
     }
      
+     
+    
+    .sidenav {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: #111;
+        overflow-x: hidden;
+        transition: 0.5s;
+        padding-top: 60px;
+    }
+    
+    .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+    }
+    
+    .sidenav a:hover {
+        color: #f1f1f1;
+    }
+    
+    .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;
+    }
+    
+    @media screen and (max-height: 450px) {
+        .sidenav {
+            padding-top: 15px;
+        }
+        .sidenav a {
+            font-size: 18px;
+        }
+    }
+     
+     
+    
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .footer {
+        position: absolute;
+        margin: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+    }
 </style>
     <title>Municipal council</title>
 </head>
@@ -40,7 +101,62 @@
         <div class="row">
             <div class="col-md-12">
                 <header>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                    
+<div id="sideNavigation" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+    
+    <form class="form-inline">
+        <div class="md-form my-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </div>
+    </form>
+    
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a href="#" class="text-white display-4">Associations in the spotlight</a>
+        </li>
+        <hr class="text-white">
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <li class="nav-item">
+            <a class="text-white" href="http://example.org/associations/festivalinterceltique/">Festival Interceltique</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        <li class="nav-item">
+            <a class="text-white" href="http://example.org/associations/testassoc/">Titre 3</a>
+        </li>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </ul>
+    
+</div>
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -125,15 +241,26 @@
             
             
         </ul>
-
-        
-        <form class="form-inline">
-            <div class="md-form my-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </div>
-        </form>
     </div>
+
+    <a style="font-size:25px; color:white;" onclick="openNav()">&#9776; open</a>
 </nav>
+
+<script>
+    
+    
+    
+    function openNav() {
+        
+        document.getElementById("sideNavigation").style.width = "250px";
+    }
+
+    
+    function closeNav() {
+        
+        document.getElementById("sideNavigation").style.width = "0px";
+    }
+</script>
                 </header>
             </div>
         </div>
@@ -147,24 +274,14 @@
             </div>
             
 
-
-
-
-
-
-
-
-
-
-
 <div class="row">
-    <div class="col-md-6" style="">
-        <img src="https://via.placeholder.com/150" class=" img-fluid ">
+    <div class="col-md-4 text-center">
+        <img src="https://via.placeholder.com/700" class=" img-fluid ">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="jumbotron">
             <p>
-                <p>Some test content here for town hall presentation</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non ad, molestiae voluptatibus veniam illo possimus tempore, voluptatem nostrum et necessitatibus qui, nobis excepturi ducimus obcaecati perferendis dicta iste! Dicta sed, explicabo amet dolores expedita id ea voluptate optio totam beatae corporis ex! Molestias omnis eligendi aliquid totam quisquam, voluptas laboriosam nemo dolor in voluptatibus nihil natus. Quod soluta assumenda saepe. Quaerat, minus nulla, officiis consectetur totam neque asperiores culpa voluptate obcaecati earum debitis omnis, hic dicta soluta tempora magnam labore ad deserunt eum sequi. Repudiandae accusantium, id omnis perferendis veritatis eius iste incidunt suscipit consequatur sunt excepturi, totam eos tempora repellat nobis ipsum ipsa quidem voluptatibus? Laborum saepe et beatae aspernatur magni iusto tenetur omnis delectus sint! Ab, ad harum! Magnam veritatis vero eius ullam, temporibus tenetur sapiente consectetur mollitia molestias iure sequi nam quaerat, voluptate exercitationem libero facilis voluptatem numquam? Aliquam, soluta obcaecati. Nisi ipsa sunt cupiditate rem qui ad, magni, repellendus quam repudiandae tenetur enim voluptate. Quas vel molestias iusto, sint voluptates porro amet. Sint omnis exercitationem dolore possimus dolorem blanditiis suscipit voluptatum, ex, quod voluptate tempora temporibus cupiditate labore ratione ea praesentium earum, a quaerat molestiae voluptates at. Ipsum recusandae deleniti, delectus tempore dignissimos dolor deserunt, dolorem labore assumenda porro dolores. Numquam officiis omnis nihil sit libero totam accusantium ab vero reprehenderit obcaecati aspernatur temporibus doloremque iusto pariatur aliquid aperiam, laudantium quod dicta provident neque ad! Qui mollitia inventore id eligendi voluptates placeat hic nam voluptatum maiores culpa, nostrum ratione. Vel tempora dolores accusamus facere illo, porro, soluta totam deserunt quibusdam numquam facilis architecto aliquid voluptatem eos, veritatis culpa quisquam. Laborum ullam maiores cum autem aliquam, quos porro, nihil impedit corrupti quam, numquam eum repudiandae fuga modi natus consectetur alias. Fugiat, tenetur! Inventore quibusdam quas adipisci natus voluptas quos repellat nisi placeat eveniet nam. Quae, aperiam soluta.</p>
 
             </p>
         </div>
@@ -173,95 +290,207 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="row">
-    <div class="col-md-6" style="">
-        <img src="" class=" img-fluid ">
-    </div>
-    <div class="col-md-6">
-        <div class="jumbotron">
-            <p>
-                
-            </p>
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="row">
-                
-                
-                
-                
-                
-                <div class="col-md-4">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1>Mayor</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-md-4 text-center">
                     <div class="jumbotron">
+                        
                         <div class="card">
-                            
-                            <img src="https://via.placeholder.com/150" class="card-img-top img-fluid" alt="placehodler image for dev">
-                            <div class="card-body">
-                                <h2 class="card-title">
-                                    <a href="http://example.org/municipalcouncil/test/">
-                                 
-                                 
-                                Jean LOU 
-                            </a>
-                                </h2>
-                                <p>Role here </p>
-                            </div>
-                        </div>
+    
+    
+    <img src="https://via.placeholder.com/170" class="card-img-top img-fluid" alt="placehodler image for dev">
+    
+    
+    <div class="card-body">
+        <h2 class="card-title">
+            <a href="http://example.org/municipalcouncil/mayor/">
+                     
+                     
+                    Mr. MAYOR | mayor
+                </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+            
+            
+            
+            
+            
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1>Adjoint(s)</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row mt-2">
+                
+                
+                
+                
+                <div class="col-md-4 text-center">
+                    <div class="jumbotron">
+                        
+                        <div class="card">
+    
+    
+    <img src="https://via.placeholder.com/170" class="card-img-top img-fluid" alt="placehodler image for dev">
+    
+    
+    <div class="card-body">
+        <h2 class="card-title">
+            <a href="http://example.org/municipalcouncil/adjoint1/">
+                     
+                     
+                    adjoint 1 | adjoint
+                </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                <div class="col-md-4 text-center">
+                    <div class="jumbotron">
+                        
+                        <div class="card">
+    
+    
+    <img src="https://via.placeholder.com/170" class="card-img-top img-fluid" alt="placehodler image for dev">
+    
+    
+    <div class="card-body">
+        <h2 class="card-title">
+            <a href="http://example.org/municipalcouncil/adjoint2/">
+                     
+                     
+                    adjoint 2 | adjoint
+                </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                <div class="col-md-4 text-center">
+                    <div class="jumbotron">
+                        
+                        <div class="card">
+    
+    
+    <img src="https://via.placeholder.com/170" class="card-img-top img-fluid" alt="placehodler image for dev">
+    
+    
+    <div class="card-body">
+        <h2 class="card-title">
+            <a href="http://example.org/municipalcouncil/adjoint3/">
+                     
+                     
+                    jean SMTHG | adjoint
+                </a>
+        </h2>
+    </div>
+</div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-12">
+                    <h1>Our great staff</h1>
+                    <hr>
+                </div>
+            </div>
+            <div class="row mt-2">
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                <div class="col-md-4 text-center">
+                    <div class="jumbotron">
+                        
+                        <div class="card">
+    
+    
+    
+    <img src="https://via.placeholder.com/150" class="card-img-top img-fluid" alt="placehodler image for dev">
+    
+    
+    <div class="card-body">
+        <h2 class="card-title">
+            <a href="http://example.org/municipalcouncil/test/">
+                     
+                     
+                    Jean LOU | Deputy
+                </a>
+        </h2>
+    </div>
+</div>
                     </div>
                 </div>
                 
@@ -269,10 +498,16 @@
                 
                 
             </div>
-        </main>
-        <div class="row">
-            <div class="col-md-12">
-                <footer class="page-footer font-small blue pt-4 mt-5">
+
+
+
+
+
+    </div>
+    </main>
+    <div class="row">
+        <div class="col-md-12">
+            <footer class="page-footer font-small blue pt-4 mt-5 b-0">
     <div class="container-fluid text-center text-white text-md-left">
         <div class="row">
             <div class="col-md-6 mt-md-0 mt-3">
@@ -409,11 +644,13 @@
                 $calendarDiv.show();
                 $pageTitle.append('Calendar');
             }
+
+
         });
     </script>
 </footer>
-            </div>
         </div>
+    </div>
     </div>
 </body>
 

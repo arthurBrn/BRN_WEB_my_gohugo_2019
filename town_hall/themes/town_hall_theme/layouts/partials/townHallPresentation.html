@@ -1,12 +1,10 @@
 <!-- Range on all pages -->
-{{ range .Site.Pages }}
-<!-- if type equals presentation -->
-{{ if eq .Type "presentation" }}
+{{ range first 1 (where .Site.Pages "Type" "presentation" ) }}
 <div class="row">
-    <div class="col-md-6" style="">
+    <div class="col-md-4 text-center">
         <img src="{{ .Params.Photo }}" class=" img-fluid ">
     </div>
-    <div class="col-md-6">
+    <div class="col-md-8">
         <div class="jumbotron">
             <p>
                 {{ .Content }}
@@ -14,7 +12,5 @@
         </div>
     </div>
 </div>
-<!-- endif -->
-{{ end }}
 <!-- endrange -->
 {{ end }}

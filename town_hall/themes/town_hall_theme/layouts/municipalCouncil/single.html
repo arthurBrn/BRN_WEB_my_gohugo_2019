@@ -19,40 +19,38 @@
         <!-- MAIN -->
         <main class="main">
             <div class="row">
-                <div class="col-md-4 mt-3">
-                    <div class="jumbotron"></div>
+                <div class="col-md-4">
+                    <!-- if there is not picture -->
+                    {{ if eq .Params.Photo "" }}
+                    <img src="https://via.placeholder.com/500" width="100%" height="100%" alt="placeholder image" class="img-fluid img-thumbnail ">
+                    <!-- if picture not empty -->
+                    {{ else }}
+                    <img src="{{ .Params.Photo }} " alt="Council member picutre " class="img-fluid img-thumbnail ">
+                    <!-- endif -->
+                    {{ end }}
                 </div>
-                <div class="col-md-4 mt-3">
-                    <!-- <div class="jumbotron"> -->
-                    <div class="card h-50">
-                        <div class="view overlay">
-                            <img class="card-img-top w-100 h-100" src="{{ .Params.Photo }}" alt="Card image cap">
-                            <a>
-                                <div class="mask rgba-white-slight"></div>
-                            </a>
-                        </div>
-                        <div class="card-body elegant-color white-text rounded-bottom">
-                            <a class="activator waves-effect mr-4"></a>
-                            {{ $nameUpper := .Params.LastName | upper }}
-                            <!--   Turn it into upper -->
-                            {{ $fullName := print .Params.FirstName " " $nameUpper }}
-                            <h2 class="card-title">{{ $fullName }}</h2>
-                            <ul>
-                                <li>Role : {{ .Params.Role }}</li>
-                            </ul>
-                        </div>
+                <div class="col-md-8">
+                    <div class="jumbotron">
+                        <!-- recover the mayor name and upper it -->
+                        {{ $nameUpper := .Params.LastName | upper }}
+                        <h1>
+                            {{.Params.FirstName }} {{ $nameUpper }}
+                            <span style="float:right;" class="badge badge-primary">{{ .Params.Role }}</span>
+                        </h1>
+                        <hr class="hr-dark">
+                        <!-- Si il y a une description -->
+                        {{ if ne .Params.Content "" }}
+                        <p class="card-text"> {{ .Content }}</p>
+                        <!-- endif -->
+                        {{ end }}
                     </div>
-                    <!-- </div> -->
-                </div>
-                <div class="col-md-4 mt-3">
-                    <div class="jumbotron"></div>
                 </div>
             </div>
         </main>
 
         <!-- FOOTER-->
-        <div class="row">
-            <div class="col-md-12">
+        <div class="row ">
+            <div class="col-md-12 ">
                 {{ partial "footer.html" . }}
             </div>
         </div>

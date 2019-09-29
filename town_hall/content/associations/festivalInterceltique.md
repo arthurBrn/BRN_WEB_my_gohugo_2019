@@ -7,5 +7,5 @@ adresse: "Lorient"
 description: "Gros festival breton"  
 photo: "" 
 # True if the association is "in the spotlight" wtf
-important: false
+important: true
 ---

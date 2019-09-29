@@ -25,9 +25,10 @@
                         <div class="view overlay">
                             <!-- if photo field is empty -->
                             {{ if eq .Params.Photo "" }}
-                            <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                            <img class="card-img-top" src="https://via.placeholder.com/150" alt="">
                             <!-- sinon -->
-                            <img class="card-img-top" src="{{ .Params.Photo }}" alt="Card image cap">
+                            {{ else }}
+                            <img class="card-img-top" src="{{ .Params.Photo }}" alt="">
                             <!-- endif -->
                             {{ end }}
                             <a>

@@ -1,0 +1,9 @@
+<!-- date of the day -->
+{{ $dateOfTheDay := dateFormat "02 January 2006" now }}
+<!-- recover the event date -->
+{{ $eventDate := dateFormat "02 January 2006" .Params.When }}
+<!-- If the date of the event correspond to today's date -->
+{{ if eq $eventDate $dateOfTheDay }}
+<span class="badge badge-warning" style="float:right;">Today!</span>
+<!-- endif -->
+{{ end }}

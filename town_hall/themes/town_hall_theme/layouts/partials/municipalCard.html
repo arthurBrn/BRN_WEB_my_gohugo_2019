@@ -1,0 +1,20 @@
+<div class="card">
+    <!-- If there is no picture -->
+    {{ if eq .Params.Photo "" }}
+    <img src="https://via.placeholder.com/170" class="card-img-top img-fluid" alt="placehodler image for dev">
+    <!-- if there is a picture -->
+    {{ else }}
+    <!-- Photo of the council member-->
+    <img src="{{ .Params.Photo }}" class="card-img-top img-fluid" alt="placehodler image for dev">
+    <!-- endif -->
+    {{ end }}
+    <div class="card-body">
+        <h2 class="card-title">
+            <a href="{{ .Permalink | absURL }}">
+                    {{ $nameUpper := .Params.LastName | upper }} <!--   Turn it into upper -->
+                    {{ $fullName := print .Params.FirstName " " $nameUpper  }} <!-- Tie both together -->
+                    {{ $fullName }} | {{ .Params.Role }}
+                </a>
+        </h2>
+    </div>
+</div>

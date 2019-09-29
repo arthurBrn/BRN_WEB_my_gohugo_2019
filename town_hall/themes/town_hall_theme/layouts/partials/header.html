@@ -1,3 +1,37 @@
+<!-- SIDE NAVIGATION -->
+<div id="sideNavigation" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- Search bar -->
+    <!-- Tuto utilisé : https://fr.jeffprod.com/blog/2018/un-moteur-de-recherche-interne-pour-votre-site-hugo/-->
+    <form class="form-inline">
+        <div class="md-form my-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+        </div>
+    </form>
+    <!-- end search bar -->
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a href="#" class="text-white display-4">Associations in the spotlight</a>
+        </li>
+        <hr class="text-white">
+        <!-- end search form -->
+        <!-- Associations in the spotlight -->
+        <!-- Range through every pages -->
+        {{ range (where .Site.Pages "Type" "associations") }}
+        <!-- si l'asso est importante -->
+        {{ if eq .Params.Important true }}
+        <li class="nav-item">
+            <a class="text-white" href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+        <!-- endif -->
+        {{ end }}
+        <!-- endrange -->
+        {{ end }}
+    </ul>
+    <!-- end associations -->
+</div>
+<!-- END SIDE NAVIGATION -->
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -36,12 +70,23 @@
             <!-- range end -->
             {{ end }}
         </ul>
-
-        <!-- Search form -->
-        <form class="form-inline">
-            <div class="md-form my-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            </div>
-        </form>
     </div>
+
+    <a style="font-size:25px; color:white;" onclick="openNav()">&#9776; open</a>
 </nav>
+
+<script>
+    // try out the w3school solution : 
+    // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_sidenav
+    // if user want open side navigation
+    function openNav() {
+        // give a width to the sidebar element 
+        document.getElementById("sideNavigation").style.width = "250px";
+    }
+
+    // if user want close navigation
+    function closeNav() {
+        // reduce width to 0 
+        document.getElementById("sideNavigation").style.width = "0px";
+    }
+</script>
