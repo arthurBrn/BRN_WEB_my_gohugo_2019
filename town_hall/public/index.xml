@@ -47,6 +47,15 @@
     </item>
     
     <item>
+      <title>Festival Interceltique de Lorient</title>
+      <link>http://example.org/events/festivalinterceltique/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/events/festivalinterceltique/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Titre 3</title>
       <link>http://example.org/associations/testassoc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

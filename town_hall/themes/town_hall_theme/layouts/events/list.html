@@ -53,19 +53,18 @@
                     {{ range .Data.Pages }}
                     <!-- if pages of type event -->
                     {{ if eq .Type "events" }}
+                    <!-- we recover the date of the event -->
+                    {{ $eventDate := dateFormat "02 January 2006" .Params.When }}
+                    <!-- if date of the event is superior to the current date -->
+                    {{ if ge $eventDate $currentDate }}
                     <div class="col-md-4">
                         <div class="jumbotron">
-                            <p>Upcoming event</p>
-                            <!-- we recover the date of the event -->
-                            {{ $eventDate := dateFormat "02 January 2006" .Params.When }}
-                            <!-- if date of the event is superior to the current date -->
-                            {{ if gt $eventDate $currentDate }}
                             <!-- We import the partial eventCard -->
                             {{ partial "eventCard.html" . }}
-                            <!-- endif -->
-                            {{ end }}
                         </div>
                     </div>
+                    <!-- endif -->
+                    {{ end }}
                     <!-- endif -->
                     {{ end }}
                     <!-- endrange -->
@@ -78,20 +77,19 @@
                     {{ range .Data.Pages }}
                     <!-- if pages of type event -->
                     {{ if eq .Type "events" }}
+                    <!-- we recover the date of the event -->
+                    {{ $eventDate := dateFormat "02 January 2006" .Params.When }}
+                    <!-- if date of the event is superior to the current date -->
+                    {{ if lt $eventDate $currentDate }}
                     <div class="col-md-4">
                         <div class="jumbotron">
-                            <p>archived event</p>
-                            <!-- we recover the date of the event -->
-                            {{ $eventDate := dateFormat "02 January 2006" .Params.When }}
-                            <!-- if date of the event is superior to the current date -->
-                            {{ if lt $eventDate $currentDate }}
                             <p>{{$currentDate}} </p>
                             <!-- We import the partial eventCard -->
                             {{ partial "eventCard.html" . }}
-                            <!-- endif -->
-                            {{ end }}
                         </div>
                     </div>
+                    <!-- endif -->
+                    {{ end }}
                     <!-- endif -->
                     {{ end }}
                     <!-- endrange -->

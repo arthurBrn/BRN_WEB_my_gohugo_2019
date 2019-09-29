@@ -16,20 +16,10 @@
             </div>
         </div>
     </div>
-
     <div class="container-fluid mt-3">
-        <main class="main">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="jumbotron">
-                        <h1>{{ .Title }}</h1>
-                    </div>
-                </div>
-            </div>
+        <main>
+            {{ block "main" . }} {{ end }}
         </main>
-
-        {{ block "main" . }} {{ end }}
-
     </div>
     <div class="container-fluid mb-0 pb-0">
         <div class="row">

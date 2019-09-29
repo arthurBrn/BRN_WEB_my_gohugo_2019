@@ -23,37 +23,62 @@
                     <!-- <div class="jumbotron"> -->
                     <div class="card">
                         <div class="view overlay">
-                            <!-- If the event got no pictue -->
-                            {{ if eq .Params.Photo "" }}
-                            <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
-                            <!-- else if it got no picture -->
-                            {{ else }}
                             <!-- Range on the photo array of event -->
                             {{ range .Params.Photo }}
+                            <!-- si vide -->
+                            {{ if eq . "" }}
+                            <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                            <!-- sinon -->
+                            {{ else }}
                             <img class="card-img-top" src="{{ . }}" alt="Card image cap">
-                            <!-- End range -->
-                            {{ end }}
                             <!-- endif -->
+                            {{ end }}
+                            <!-- End range -->
                             {{ end }}
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>
                         </div>
                         <div class="card-body elegant-color white-text rounded-bottom">
-                            <a class="activator waves-effect mr-4"><i class="fas fa-share-alt white-text"></i></a>
+                            <a class="activator waves-effect mr-4"></a>
                             <ul>
                                 <li> At:
                                     <!-- Go through the adresse array -->
                                     {{ range .Params.Adresse }}
                                     <!-- Create an address variable -->
-                                    {{ $address := print .address " " .postalCode " " .city " " .label }}
+                                    {{ $address := print .address " " .postalCode " " .city}}
                                     <!-- Display the variable with filter -->
                                     {{ $address | safeHTML }}
                                     <!-- End of range-->
                                     {{ end }}
                                 </li>
-                                <li>{{ $dateTime := print .Params.When "2006-01-02" }} On the: {{ $dateTime }} </li>
-                                <li>By: {{ .Params.Association }} </li>
+                                <li> On the: {{ dateFormat "02 January 2006" .Params.When }} </li>
+                                <!-- Si l'association n'est pas précisé -->
+                                {{ if eq .Params.Association "" }}
+                                <li>By: Undefined </li>ddd
+                                <!-- If organisation is defined -->
+                                {{ else }}
+                                <!-- We store the value of the event's association -->
+                                {{ $oragnization := print .Params.Association }}
+                                <!-- We go through every pages of the site -->
+                                {{ range .Site.Pages }}
+                                <!-- if page of type associations -->
+                                {{ if eq .Type "associations" }}
+                                <!-- Si le title de l'association actuel, correspond au title de l'association de l'event, stocké avant le range -->
+                                {{ if eq .Params.Title $oragnization }}
+                                <!-- On affiche le nom de l'association avec un lien vers sa single page -->
+                                By:
+                                <a href="{{ .Permalink }}">
+                                            {{ $oragnization }}
+                                        </a>
+                                <!-- endif -->
+                                {{ end }}
+                                <!-- endif -->
+                                {{ end }}
+                                <!-- endrange -->
+                                {{ end }}
+                                <!-- endif-->
+                                {{ end }}
                             </ul>
                         </div>
                     </div>

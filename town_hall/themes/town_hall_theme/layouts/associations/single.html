@@ -23,7 +23,13 @@
                     <!-- <div class="jumbotron"> -->
                     <div class="card">
                         <div class="view overlay">
+                            <!-- if photo field is empty -->
+                            {{ if eq .Params.Photo "" }}
+                            <img class="card-img-top" src="https://via.placeholder.com/150" alt="Card image cap">
+                            <!-- sinon -->
                             <img class="card-img-top" src="{{ .Params.Photo }}" alt="Card image cap">
+                            <!-- endif -->
+                            {{ end }}
                             <a>
                                 <div class="mask rgba-white-slight"></div>
                             </a>
@@ -43,8 +49,6 @@
                         <h1>{{ .Title }}</h1>
                         <!-- Store the value for later use -->
                         {{ $assoName := print .Title }}
-                        <!-- display for test -->
-                        {{ $assoName }}
                         <hr class="hr-dark">
                     </div>
                     <div class="jumbotron">
